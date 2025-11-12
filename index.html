@@ -1,0 +1,59 @@
+<html lang="en">
+</div>
+</div>
+<div class="control-group">
+<label>Metric</label>
+<div class="switcher">
+<input type="radio" id="metric-tas" name="metric" value="tas" checked>
+<label for="metric-tas">Temperature Δ (°C, vs 1850–1900)</label>
+</div>
+<div class="switcher">
+<input type="radio" id="metric-pr" name="metric" value="pr_pct">
+<label for="metric-pr">Precipitation Δ (%)</label>
+</div>
+</div>
+</section>
+
+
+<main>
+<section class="chart-card">
+<h2>Global Trend Over Time • Brush to select years</h2>
+<div id="timeseries"></div>
+<p class="caption">Interactive line chart showing global mean change over time for selected scenarios. Use the brush to focus on a window; the selection informs the late-century summary.</p>
+</section>
+
+
+<section class="grid">
+<div class="chart-card">
+<h2>Late-Century Change (2080–2100 vs 1995–2014)</h2>
+<div id="latecentury"></div>
+<p class="caption">Bar chart by region summarizing late-century change for selected scenarios.</p>
+</div>
+<div class="chart-card">
+<h2>Variable × Scenario Coverage</h2>
+<div id="coverage"></div>
+<p class="caption">Heatmap showing number of model runs available across variables and scenarios.</p>
+</div>
+</section>
+
+
+<section class="writeup">
+<h2>Design Rationale & Process</h2>
+<ul>
+<li><strong>Linked views:</strong> A global time-series with brushing supports temporal focus; the brush drives interpretation alongside a late‑century summary.</li>
+<li><strong>Scenario filters:</strong> Pill toggles enable quick comparisons across SSPs without clutter.</li>
+<li><strong>Encodings:</strong> Position over time for trend (lines), magnitude comparison for regions (bars), density for coverage (heatmap).</li>
+<li><strong>Details-on-demand:</strong> Tooltips surface exact values; legends and labels call out baselines.</li>
+</ul>
+</section>
+</main>
+
+
+<footer>
+<p>Built with D3.js for DSC 106 Project 3. Data: CMIP6 (preprocessed CSVs placed in <code>/data</code>).</p>
+</footer>
+
+
+<script src="main.js"></script>
+</body>
+</html>
