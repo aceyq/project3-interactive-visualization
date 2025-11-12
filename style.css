@@ -1,0 +1,44 @@
+:root {
+  --bg: #0b0f14;
+  --card: #121821;
+  --text: #e9eef7;
+  --muted: #a7b2c3;
+  --accent: #74a7ff;
+  --grid-gap: 16px;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(180deg, #0b0f14 0%, #121821 100%);
+  color: var(--text);
+}
+.site-header { padding: 28px 20px 8px; text-align: center; }
+.site-header h1 { margin: 0; font-size: 1.8rem; font-weight: 700; }
+.subtitle { color: var(--muted); max-width: 1000px; margin: 8px auto 0; line-height: 1.5; }
+.controls { display: flex; flex-wrap: wrap; gap: var(--grid-gap); padding: 10px 20px; justify-content: center; }
+.control-group { background: var(--card); padding: 12px 14px; border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,0.25); }
+.control-group label { display:block; font-size: 0.9rem; color: var(--muted); margin-bottom: 8px; }
+.scenario-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill { cursor: pointer; border: 1px solid #32558d; background: transparent; color: var(--text); padding: 8px 10px; border-radius: 999px; font-weight: 600; }
+.pill.active { background: #1b2740; border-color: var(--accent); }
+.switcher { display:flex; align-items:center; gap: 8px; margin: 6px 0; }
+main { padding: 10px 20px 40px; max-width: 1200px; margin: 0 auto; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--grid-gap); }
+.chart-card { background: var(--card); border-radius: 16px; padding: 14px; box-shadow: 0 4px 24px rgba(0,0,0,0.25); }
+.chart-card h2 { margin: 6px 4px 8px; font-size: 1.2rem; }
+.caption { color: var(--muted); font-size: 0.9rem; margin: 8px 4px 0; }
+#timeseries, #latecentury, #coverage { width: 100%; height: 420px; }
+svg { font: 12px Inter, sans-serif; }
+.axis path, .axis line { stroke: #5a6b85; }
+.gridline line { stroke: #2a3446; }
+.legend { font-size: 12px; }
+.tooltip {
+  position: fixed; pointer-events: none; padding: 8px 10px; background: #0e1420; color: var(--text);
+  border: 1px solid #2d3d57; border-radius: 8px; box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+}
+footer { color: var(--muted); text-align:center; padding: 20px; }
+@media (max-width: 600px) {
+  #timeseries, #latecentury, #coverage { height: 360px; }
+}
