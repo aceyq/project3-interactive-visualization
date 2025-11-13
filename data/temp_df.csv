@@ -1,4 +1,4 @@
-time,scenario,region,tas_C_anomaly
+time,scenario,region,tas_C
 2015-12-31 00:00:00,ssp126,Global,0.85617065
 2016-12-31 00:00:00,ssp126,Global,0.852478
 2017-12-31 00:00:00,ssp126,Global,1.071106

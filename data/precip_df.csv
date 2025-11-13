@@ -1,4 +1,4 @@
-time,scenario,region,pr_anomaly
+time,scenario,region,pr_day
 2015-12-31 00:00:00,ssp126,Global,-0.013023376
 2016-12-31 00:00:00,ssp126,Global,-0.007555723
 2017-12-31 00:00:00,ssp126,Global,0.007903099
