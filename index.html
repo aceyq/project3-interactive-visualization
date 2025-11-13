@@ -63,27 +63,48 @@
     </section>
 
     <section class="writeup">
-      <h2>Design Rationale &amp; Process</h2>
-      <ul>
-        <li>
-          <strong>Linked views:</strong>
-          A global time-series with brushing supports temporal focus; the brush can inform interpretation of
-          late-century summaries.
-        </li>
-        <li>
-          <strong>Scenario filters:</strong>
-          Pill toggles enable quick comparisons across SSPs without visual clutter.
-        </li>
-        <li>
-          <strong>Encodings:</strong>
-          Position over time for trends (lines) and magnitude comparison for regions (future bar chart),
-          supporting comparison across scenarios.
-        </li>
-        <li>
-          <strong>Details-on-demand:</strong>
-          Tooltips surface exact values for temperature and precipitation by year and scenario.
-        </li>
-      </ul>
+      <h2>Design Rationale</h2>
+      <p>
+        Our primary design goal was to help viewers compare how different CMIP6 scenarios change global temperature
+        and precipitation over time in a way that is directly relevant to future vegetation stress or greening
+        potential. We chose a single, global time-series view as the main graphic because it allows us to align all
+        scenarios along a shared time axis, making it easy to see divergence between low- and high-emissions
+        pathways. Time is encoded on the horizontal axis, while the magnitude of change in temperature or
+        precipitation is encoded on the vertical axis, using position as the primary channel because it supports
+        precise quantitative reading. Color is used to distinguish scenarios (SSP1–2.6, SSP2–4.5, SSP3–7.0,
+        SSP5–8.5), following a progression from cooler to warmer colors to echo the idea of increasing radiative
+        forcing.
+      </p>
+      <p>
+        For interaction techniques, we focused on a small, coherent set that directly supports the question rather
+        than a large collection of disconnected features. Scenario “pills” act as dynamic filters so viewers can
+        quickly isolate individual pathways or compare subsets without overplotting. A metric toggle switches
+        between temperature change (°C relative to an 1850–1900 baseline) and precipitation change (mm/day), using
+        the same visual structure so users can mentally map patterns across variables. Brushing along the time axis
+        allows viewers to zoom into specific ranges (for example, mid-century vs. late-century) and see how
+        trajectories evolve within that window. Tooltips provide details-on-demand, surfacing exact values by year
+        and scenario without cluttering the view with labels. We considered alternative designs, such as separate
+        static charts for each scenario, small multiples by region, or using area charts instead of lines, but
+        ultimately chose a single shared time-series with interactive filtering because it minimizes cognitive load
+        while still enabling rich comparisons across scenarios and variables.
+      </p>
+
+      <h2>Development Process</h2>
+      <p>
+        One teammate was responsible for setting up the project structure by creating and organizing the core files
+        (<code>index.html</code>, <code>style.css</code>, and <code>main.js</code>) and deploying the website through GitHub
+        Pages so the visualization could be accessed online. This teammate also implemented and refined the
+        interactivity of the main D3 time-series chart, including scenario filtering, metric toggling, brushing for
+        time-window selection, and tooltip details-on-demand.
+      </p>
+      <p>
+        [Insert description of contributions from other teammates here.]
+      </p>
+      <p>
+        Overall, the development process included data preprocessing, layout design, and interaction design. The most
+        time-consuming portions involved debugging the interactive behaviors and ensuring smooth updates across filters
+        and metrics, as well as preparing and validating the CMIP6 data used in the visualization.
+      </p>
     </section>
   </main>
 
