@@ -4,18 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DSC 106 Project 3 · CMIP6 Interactive</title>
+
+  <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
   <link rel="stylesheet" href="style.css" />
+
+  <!-- D3.js -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <h1>Projected Global Temperature & Precipitation (CMIP6)</h1>
+    <h1>Projected Global Temperature &amp; Precipitation (CMIP6)</h1>
     <p class="authors">Jensen Emi · Calvin Magsie · Acelynn Qiao · Rezon Gautama</p>
 
-    <p class="subtitle">How do projected changes in global temperature and precipitation under different CMIP6 scenarios help us understand future climate patterns and their potential impact on global vegetation?</p>
+    <p class="subtitle">
+      How do projected changes in global temperature and precipitation under different CMIP6 scenarios help us
+      understand future climate patterns and their potential impact on global vegetation?
+    </p>
   </header>
 
   <section class="controls">
@@ -28,6 +38,7 @@
         <button class="pill active" data-scn="SSP5-8.5">SSP5-8.5</button>
       </div>
     </div>
+
     <div class="control-group">
       <label>Metric</label>
       <div class="switcher">
@@ -35,8 +46,8 @@
         <label for="metric-tas">Temperature Δ (°C, vs 1850–1900)</label>
       </div>
       <div class="switcher">
-        <input type="radio" id="metric-pr" name="metric" value="pr_pct">
-        <label for="metric-pr">Precipitation Δ (%)</label>
+        <input type="radio" id="metric-pr" name="metric" value="pr">
+        <label for="metric-pr">Precipitation Δ (mm/day)</label>
       </div>
     </div>
   </section>
@@ -45,37 +56,68 @@
     <section class="chart-card">
       <h2>Global Trend Over Time • Brush to select years</h2>
       <div id="timeseries"></div>
-      <p class="caption">Interactive line chart showing global mean change over time for selected scenarios. Use the brush to focus on a window; the selection informs the late-century summary.</p>
+      <p class="caption">
+        Interactive line chart showing global mean change over time for selected scenarios.
+        Use the brush to focus on a window; hover over points for exact values.
+      </p>
     </section>
 
     <section class="grid">
       <div class="chart-card">
         <h2>Late-Century Change (2080–2100 vs 1995–2014)</h2>
         <div id="latecentury"></div>
-        <p class="caption">Bar chart by region summarizing late-century change for selected scenarios.</p>
+        <p class="caption">
+          Bar chart by region summarizing late-century change for selected scenarios.
+          (Placeholder – can be wired up later.)
+        </p>
       </div>
+
       <div class="chart-card">
         <h2>Variable × Scenario Coverage</h2>
         <div id="coverage"></div>
-        <p class="caption">Heatmap showing number of model runs available across variables and scenarios.</p>
+        <p class="caption">
+          Heatmap showing number of model runs available across variables and scenarios.
+          (Placeholder – can be wired up later.)
+        </p>
       </div>
     </section>
 
     <section class="writeup">
-      <h2>Design Rationale & Process</h2>
+      <h2>Design Rationale &amp; Process</h2>
       <ul>
-        <li><strong>Linked views:</strong> A global time-series with brushing supports temporal focus; the brush drives interpretation alongside a late-century summary.</li>
-        <li><strong>Scenario filters:</strong> Pill toggles enable quick comparisons across SSPs without clutter.</li>
-        <li><strong>Encodings:</strong> Position over time for trend (lines), magnitude comparison for regions (bars), density for coverage (heatmap).</li>
-        <li><strong>Details-on-demand:</strong> Tooltips surface exact values; legends and labels call out baselines.</li>
+        <li>
+          <strong>Linked views:</strong>
+          A global time-series with brushing supports temporal focus; the brush can inform interpretation of
+          late-century summaries.
+        </li>
+        <li>
+          <strong>Scenario filters:</strong>
+          Pill toggles enable quick comparisons across SSPs without visual clutter.
+        </li>
+        <li>
+          <strong>Encodings:</strong>
+          Position over time for trends (lines) and magnitude comparison for regions (future bar chart),
+          supporting comparison across scenarios.
+        </li>
+        <li>
+          <strong>Details-on-demand:</strong>
+          Tooltips surface exact values for temperature and precipitation by year and scenario.
+        </li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>Built with D3.js for DSC 106 Project 3. Data: CMIP6 (preprocessed CSVs placed in <code>/data</code>).</p>
+    <p>
+      Built with D3.js for DSC 106 Project 3.
+      Data: CMIP6 (preprocessed CSVs placed in <code>/data</code>).
+    </p>
   </footer>
 
+  <!-- Tooltip for details-on-demand -->
+  <div id="tooltip" class="tooltip" style="opacity: 0;"></div>
+
+  <!-- Main script -->
   <script src="main.js"></script>
 </body>
 </html>
